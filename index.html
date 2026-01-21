@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/vnc3org.css">
+    <title>Verónica Luque</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root{
+            --claro: #FFE4F2;
+            --medio: #ff68cf;
+            --oscuro: #2c0b24;
+        }
+
+        body{
+            background: var(--claro);
+            font-size: 1.2vw;
+        }
+
+        .container{
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #izquierda{
+            position: relative;
+            width: 50%;
+            display: grid;
+            grid-template: repeat(2, 50%)/ repeat(2, 50%);
+        }
+
+
+
+        /*flex grid arriba izquierda*/
+        .arriba_izq{
+            display: grid;
+            grid-template: repeat(2, 1fr) 3fr/ repeat(2, 1fr);
+        }
+        
+        .arriba_izq .fondo_rombo{
+            background-color: #FFE4F2;
+            grid-area: 1/1/2/3;
+            display: flex;
+        }
+
+        .arriba_izq div:nth-child(2){
+            background: var(--medio);
+            grid-area: 2/1/3/2;
+            display: flex;
+        }
+
+        .arriba_izq div:nth-child(3){
+            background: var(--medio);
+            grid-area: 2/2/3/3;
+            display: flex;
+        }
+
+        .arriba_izq .circulo_rombo{
+            background-color: var(--oscuro);
+            grid-area: 3/1/4/3;
+            display: flex;
+        }
+
+        
+
+        /*flex grid arriba derecha*/
+        .arriba_der{
+            background: var(--oscuro);
+            grid-area: 1/2/2/3;
+            display: grid;
+            grid-template: repeat(2, 1fr)/2fr 3fr;
+        }
+
+        .arriba_der div:first-child{
+            background: var(--claro);
+            grid-area: 1/1/2/2;
+            display: flex;
+        }
+
+        .arriba_der div:nth-child(2){
+            background: var(--claro);
+            grid-area: 2/1/3/2;
+            display: flex;
+        }
+
+        .arriba_der .circulo_rombo2{
+            background: var(--medio);
+            grid-area: 1/2/3/3;
+            display: flex;
+        }
+
+
+        
+        /*flex grid abajo izquierda*/
+        .abajo_izq{
+            background: var(--oscuro);
+            grid-area: 2/1/3/2;
+            display: grid;
+            grid-template: repeat(2, 1fr)/3fr 2fr;
+        }
+
+        .abajo_izq .circulo_rombo2{
+            background-color: var(--medio);
+            grid-area: 1/1/3/2;
+            display: flex;
+        }
+
+        .abajo_izq div:nth-child(2){
+            background-color: var(--claro);
+            grid-area: 1/2/2/3;
+            display: flex;
+        }
+
+        .abajo_izq div:last-child{
+            background: var(--claro);
+            grid-area: 2/2/3/3;
+            display: flex;
+        }
+
+
+
+
+
+        /*flex grid abajo derecha*/
+         .abajo_der{
+            display: grid;
+            grid-template: repeat(2, 1fr) 3fr/ repeat(2, 1fr);
+        }
+        
+        .abajo_der .fondo_rombo{
+            background-color: #FFE4F2;
+            grid-area: 1/1/2/3;
+            display: flex;
+        }
+
+        .abajo_der div:nth-child(2){
+            background: var(--medio);
+            grid-area: 2/1/3/2;
+            display: flex;
+        }
+
+        .abajo_der div:nth-child(3){
+            background: var(--medio);
+            grid-area: 2/2/3/3;
+            display: flex;
+        }
+
+        .abajo_der .circulo_rombo{
+            background-color: var(--oscuro);
+            grid-area: 3/1/4/3;
+            display: flex;
+        }
+
+        
+
+        /*ELEMENTOS*/
+        .rombo{
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(
+                50% 0%,
+                100% 50%,
+                50% 100%,
+                0% 50%
+            );
+            display: flex;
+            background: var(--oscuro);
+        }
+        
+        .circulo{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            background: var(--claro);
+        }
+
+        .circulo2{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            
+        }
+
+        .circulo_rombo, .circulo_rombo2{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circulo_rombo .circulo{
+            position: absolute;
+        }
+
+        .circulo_rombo2 .circulo{
+            position: absolute;
+        }
+
+        .arriba_der .circulo_rombo2 .rombo{
+            background: var(--oscuro);
+        }
+
+        .abajo_izq .circulo_rombo2 .rombo{
+            background: var(--oscuro);
+        }
+
+
+
+
+
+        /*Derecha, texto*/
+        main{
+            position: relative;
+            width: 50%;
+            display: grid;
+            grid-template: repeat(2, 50%)/ 1fr;
+            padding: 50px 50px 50px 50px;
+        }
+
+        .nombre{
+            display: flex;
+            grid-area: 1/1/2/2;
+            text-align: left;
+            position: relative;
+        }
+
+        h1{
+            bottom: 10%;
+            position: absolute;
+            text-transform: uppercase;
+            font-family: "tt-travels-next", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 4em;
+            line-height: 1;
+            color: var(--oscuro);
+        }
+
+        h1:hover{
+            font-weight: bold;
+        }
+
+        .practicas{
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template: repeat(2, 1fr)/repeat(2,1fr);       
+        }
+
+        .p1, .p2, .p3, .p4{
+            font-family: "tt-travels-next", sans-serif;
+            font-weight: 400;
+            font-size: 4em;
+        }
+
+        .p1{
+            border-bottom: solid .1875rem var(--oscuro);
+            border-right: solid .1875rem var(--oscuro);
+        }
+
+        .p2{
+            text-align: right;
+            border-bottom: solid .1875rem var(--oscuro);
+            border-left: solid .1875rem var(--oscuro);
+        }
+
+        .p3{
+            border-top: solid .1875rem var(--oscuro);
+            border-right: solid .1875rem var(--oscuro);
+        }
+
+        .p4{
+            text-align: right;
+            border-top: solid .1875rem var(--oscuro);
+            border-left: solid .1875rem var(--oscuro);
+        }
+
+        a{
+            color: var(--medio);
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: var(--oscuro);
+            font-weight: bold;
+            transition: all .6s;
+        }
+
+        @media ((min-width:481px) and (max-width: 1024px)){
+            body{
+                font-size: 1.7vw;
+            }
+            .container{
+                flex-direction: column-reverse;
+                width: 100vw;
+                height: 100%;
+            }
+            #izquierda, #derecha{
+                 width: 100%;
+                height: 100vh;
+            }
+        }
+
+         @media (max-width: 480px){
+            body{
+                font-size: 1.9vw;
+            }
+            .container{
+                flex-direction: column-reverse;
+                width: 100vw;
+                height: 100%;
+            }
+            #izquierda, #derecha{
+                 width: 100%;
+                height: 100vh;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <!--izquierda-->
+        <div id="izquierda">
+            <div class="arriba_izq">
+                <div class="fondo_rombo">
+                    <div class="rombo"></div>
+                </div>
+                <div class="fondo_circulo">
+                    <div class="circulo"></div>
+                </div>
+                <div class="fondo_circulo">
+                    <div class="circulo"></div>
+                </div>
+                <div class="circulo_rombo">
+                    <div class="circulo"></div>
+                    <div class="rombo"></div>
+                </div>
+            </div>
+
+
+
+            <div class="arriba_der">
+                <div class="circulo2"></div>
+                <div class="circulo2"></div>
+                <div class="circulo_rombo2">
+                    <div class="circulo"></div>
+                    <div class="rombo"></div>
+                </div>
+            </div>
+
+
+
+            <div class="abajo_izq">
+                <div class="circulo_rombo2">
+                    <div class="circulo"></div>
+                    <div class="rombo"></div>
+                </div>
+                <div class="circulo2"></div>
+                <div class="circulo2"></div>
+            </div>
+
+
+
+            <div class="abajo_der">
+                <div class="fondo_rombo">
+                    <div class="rombo"></div>
+                </div>
+                <div class="fondo_circulo">
+                    <div class="circulo"></div>
+                </div>
+                <div class="fondo_circulo">
+                    <div class="circulo"></div>
+                </div>
+                <div class="circulo_rombo">
+                    <div class="circulo"></div>
+                    <div class="rombo"></div>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+            <!--derecha-->
+        <main id="derecha">
+            <div class="nombre">
+                <h1>Verónica <br>Guadalupe <br>Luque Gil</h1>
+            </div>
+
+            <div class="practicas">
+                <p class="p1"><a href="https://veronicaluqueeasd.github.io/p3/">p1</a></p>
+                <p class="p2"><a href="https://veronicaluqueeasd.github.io/P5/">p2</a></p>
+                <p class="p3"><a href="https://veronicaluqueeasd.github.io/Flexible-visual-systems/">p3</a></p>
+                <p class="p4"><a href="https://veronicaluqueeasd.github.io/Juny-26/">p4</a></p>
+            </div>
+            
+            
+
+        </main>
+        
+    </div>
+
+
+    
+</body>
+</html>
+
+<!-- grid-area admite cuatro valores separados por barras oblicuas: grid-row-start, grid-column-start, grid-row-end, seguido de grid-column-end.-->
+ <!--grid-template: row / column;-->
+ <!--DISPLAY GRID-->
+ <!--USAR DISPLAY FLEX A LA IZQUIERDA Y DOSPLAY GRID A LA DERECHA-->
